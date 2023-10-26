@@ -1,7 +1,468 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lunch Decision Helper</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #141414;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        #content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+        select, button {
+            font-size: 18px;
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+        }
+        select {
+            outline: none;
+        }
+        button {
+            background-color: #141414;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #1d1d1d;
+        }
+        label {
+            font-size: 18px;
+            margin-top: 10px;
+            display: block;
+        }
+        h2 {
+            font-size: 24px;
+        }
+        p {
+            font-size: 16px;
+        }
+    </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <header>
+        <h1>Lunch Decision Helper</h1>
+    </header>
+    <div id="content">
+        <h2>Let's Decide What's for Lunch</h2>
+        <p>Answer the questions below to get personalized lunch recommendations.</p>
+        <form id="lunch-decision-form">
+            <label for="dietary-preference">Dietary Preference:</label>
+            <select id="dietary-preference">
+                <option value="any">Any</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="pescatarian">Pescatarian</option>
+                <option value="carnivore">Carnivore</option>
+            </select>
+
+            <label for="cooking-skill">Cooking Skill Level:</label>
+            <select id="cooking-skill">
+                <option value="any">Any</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+
+            <label for="time-available">Time Available:</label>
+            <select id="time-available">
+                <option value="any">Any</option>
+                <option value="quick">Quick (15 minutes or less)</option>
+                <option value="moderate">Moderate (30-45 minutes)</option>
+                <option value="leisurely">Leisurely (more than 45 minutes)</option>
+            </select>
+
+            <button type="button" onclick="getLunchRecommendation()">Get Lunch Recommendation</button>
+        </form>
+
+        <h2>Recommended Lunch:</h2>
+        <p id="lunch-recommendation">Your personalized lunch recommendation will appear here.</p>
+    </div>
+
+    <script>
+        function getLunchRecommendation() {
+            const dietaryPreference = document.getElementById("dietary-preference").value;
+            const cookingSkill = document.getElementById("cooking-skill").value;
+            const timeAvailable = document.getElementById("time-available").value;
+
+            const lunchOptions = [
+                {
+                    name: "Mediterranean Salad",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "Chicken Alfredo Pasta",
+                    dietaryPreference: "carnivore",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Vegan Stir-Fry",
+                    dietaryPreference: "vegan",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Grilled Salmon",
+                    dietaryPreference: "pescatarian",
+                    cookingSkill: "advanced",
+                    time: "leisurely",
+                },
+                {
+                    name: "Caprese Sandwich",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "Beef Tacos",
+                    dietaryPreference: "carnivore",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Veggie Wrap",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "Tofu and Vegetable Curry",
+                    dietaryPreference: "vegan",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Shrimp Scampi",
+                    dietaryPreference: "pescatarian",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Classic BLT Sandwich",
+                    dietaryPreference: "carnivore",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "Greek Gyros",
+                    dietaryPreference: "carnivore",
+                    cookingSkill: "intermediate",
+                    time: "quick",
+                },
+                {
+                    name: "Quinoa Salad with Roasted Veggies",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "beginner",
+                    time: "leisurely",
+                },
+                {
+                    name: "Seafood Paella",
+                    dietaryPreference: "pescatarian",
+                    cookingSkill: "advanced",
+                    time: "leisurely",
+                },
+                {
+                    name: "Spaghetti Aglio e Olio",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "Baked Ziti",
+                    dietaryPreference: "carnivore",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Vegan Pad Thai",
+                    dietaryPreference: "vegan",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Grilled Portobello Mushrooms",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "beginner",
+                    time: "leisurely",
+                },
+                {
+                    name: "Lemon Garlic Shrimp",
+                    dietaryPreference: "pescatarian",
+                    cookingSkill: "intermediate",
+                    time: "leisurely",
+                },
+                {
+                    name: "Classic Hamburger",
+                    dietaryPreference: "carnivore",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "Thai Green Curry",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Veggie and Hummus Wrap",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "Teriyaki Salmon",
+                    dietaryPreference: "pescatarian",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Eggplant Parmesan",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "BBQ Pulled Pork Sandwich",
+                    dietaryPreference: "carnivore",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Chickpea Curry",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Cajun Jambalaya",
+                    dietaryPreference: "carnivore",
+                    cookingSkill: "advanced",
+                    time: "leisurely",
+                },
+                {
+                    name: "Lentil Soup",
+                    dietaryPreference: "vegan",
+                    cookingSkill: "beginner",
+                    time: "moderate",
+                },
+                {
+                    name: "Salmon Teriyaki",
+                    dietaryPreference: "pescatarian",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Pesto Pasta",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "Crispy Fried Chicken",
+                    dietaryPreference: "carnivore",
+                    cookingSkill: "advanced",
+                    time: "moderate",
+                },
+                {
+                    name: "Black Bean Tacos",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "Shrimp and Grits",
+                    dietaryPreference: "pescatarian",
+                    cookingSkill: "intermediate",
+                    time: "leisurely",
+                },
+                {
+                    name: "Ratatouille",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "intermediate",
+                    time: "leisurely",
+                },
+                {
+                    name: "Sushi Rolls",
+                    dietaryPreference: "pescatarian",
+                    cookingSkill: "advanced",
+                    time: "leisurely",
+                },
+                {
+                    name: "Stuffed Bell Peppers",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Beef Stroganoff",
+                    dietaryPreference: "carnivore",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Lemon Herb Roasted Chicken",
+                    dietaryPreference: "carnivore",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Egg Fried Rice",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "Shrimp and Avocado Salad",
+                    dietaryPreference: "pescatarian",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "Vegetable Tempura",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "Beef and Broccoli Stir-Fry",
+                    dietaryPreference: "carnivore",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Vegan Burrito Bowl",
+                    dietaryPreference: "vegan",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Tuna Salad Sandwich",
+                    dietaryPreference: "pescatarian",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "Butternut Squash Soup",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "beginner",
+                    time: "moderate",
+                },
+                {
+                    name: "Steak Fajitas",
+                    dietaryPreference: "carnivore",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Veggie Omelette",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "Tilapia with Lemon Caper Sauce",
+                    dietaryPreference: "pescatarian",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Vegetable Curry",
+                    dietaryPreference: "vegan",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Pulled BBQ Jackfruit Sandwich",
+                    dietaryPreference: "vegan",
+                    cookingSkill: "beginner",
+                    time: "moderate",
+                },
+                {
+                    name: "Classic Caesar Salad",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "Baked Cod with Herbs",
+                    dietaryPreference: "pescatarian",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                },
+                {
+                    name: "Chicken Quesadillas",
+                    dietaryPreference: "carnivore",
+                    cookingSkill: "intermediate",
+                    time: "quick",
+                },
+                {
+                    name: "Vegan Chili",
+                    dietaryPreference: "vegan",
+                    cookingSkill: "beginner",
+                    time: "moderate",
+                },
+                {
+                    name: "Tofu and Spinach Wrap",
+                    dietaryPreference: "vegan",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "Salmon Sushi Bowl",
+                    dietaryPreference: "pescatarian",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+                {
+                    name: "BBQ Pulled Jackfruit Sandwich",
+                    dietaryPreference: "vegan",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                },
+            ];
+
+            const filteredOptions = lunchOptions.filter(option => {
+                return (
+                    (dietaryPreference === "any" || option.dietaryPreference === dietaryPreference) &&
+                    (cookingSkill === "any" || option.cookingSkill === cookingSkill) &&
+                    (timeAvailable === "any" || option.time === timeAvailable)
+                );
+            });
+
+            let recommendation = "No matching lunch found.";
+            if (filteredOptions.length > 0) {
+                const randomIndex = Math.floor(Math.random() * filteredOptions.length);
+                recommendation = filteredOptions[randomIndex].name;
+            }
+
+            document.getElementById("lunch-recommendation").textContent = recommendation;
+        }
+    </script>
 </body>
 </html>
