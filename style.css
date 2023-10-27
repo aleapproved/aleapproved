@@ -1,18 +1,21 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    background-color: #f2f2f2;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
     color: #333;
+    font-size: 36px;
 }
 
 .form {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     margin: 20px auto;
     max-width: 400px;
 }
@@ -22,11 +25,30 @@ label, select, button {
     margin: 10px 0;
 }
 
+label {
+    color: #555;
+    font-weight: bold;
+}
+
+select, button {
+    padding: 10px;
+    width: 100%;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+select:hover, button:hover {
+    border-color: #0056b3;
+}
+
 #recipe-display {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     margin: 20px auto;
     max-width: 400px;
     display: none;
@@ -34,19 +56,22 @@ label, select, button {
 
 #recipe-name {
     font-weight: bold;
+    color: #333;
+    font-size: 24px;
 }
 
 #recipe-details {
     margin-top: 10px;
+    color: #555;
+    font-size: 16px;
 }
 
 button {
     background-color: #007BFF;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
     cursor: pointer;
+    font-size: 18px;
 }
 
 button:hover {
