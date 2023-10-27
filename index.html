@@ -1,134 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Lunch Decision Helper</title>
-    <style>
-        body {
-            font-family: "Arial", sans-serif;
-            background-color: #f7f7f7;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #141414;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
-        h1 {
-            font-size: 36px;
-            margin: 0;
-        }
-        #content {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-        }
-        select, button {
-            font-size: 18px;
-            padding: 10px;
-            margin: 10px 0;
-            width: 100%;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f7f7f7;
-        }
-        select {
-            outline: none;
-        }
-        button {
-            background-color: #141414;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #1d1d1d;
-        }
-        label {
-            font-size: 18px;
-            margin-top: 10px;
-            display: block;
-        }
-        h2 {
-            font-size: 24px;
-        }
-        p {
-            font-size: 16px;
-        }
-    </style>
+    <title>Dinner Picker</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Lunch Decision Helper</h1>
-    </header>
-    <div id="content">
-        <h2>Let's Decide What's for Lunch</h2>
-        <p>Answer the questions below to get personalized lunch recommendations.</p>
-        <form id="lunch-decision-form">
-            <label for="dietary-preference">Dietary Preference:</label>
-            <select id="dietary-preference">
-                <option value="any">Any</option>
-                <option value="vegetarian">Vegetarian</option>
-                <option value="vegan">Vegan</option>
-                <option value="pescatarian">Pescatarian</option>
-                <option value="carnivore">Carnivore</option>
-            </select>
+    <h1>Dinner Picker</h1>
+    <div class="form">
+        <label for="dietary">Dietary Preferences:</label>
+        <select id="dietary">
+            <option value="any">Any</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="gluten-free">Gluten-free</option>
+            <!-- Add more options as needed -->
+        </select>
 
-            <label for="cooking-skill">Cooking Skill Level:</label>
-            <select id="cooking-skill">
-                <option value="any">Any</option>
-                <option value="beginner">Beginner</option>
-                <option value="intermediate">Intermediate</option>
-                <option value="advanced">Advanced</option>
-            </select>
+        <label for="time">Time Available:</label>
+        <select id="time">
+            <option value="any">Any</option>
+            <option value="15">15 minutes</option>
+            <option value="30">30 minutes</option>
+            <option value="60">1 hour</option>
+            <!-- Add more options as needed -->
+        </select>
 
-            <label for="time-available">Time Available:</label>
-            <select id="time-available">
-                <option value="any">Any</option>
-                <option value="quick">Quick (15 minutes or less)</option>
-                <option value="moderate">Moderate (30-45 minutes)</option>
-                <option value="leisurely">Leisurely (more than 45 minutes)</option>
-            </select>
-
-            <button type="button" onclick="getLunchRecommendation()">Get Lunch Recommendation</button>
-        </form>
-
-        <h2>Recommended Lunch:</h2>
-        <p id="lunch-recommendation">Your personalized lunch recommendation will appear here.</p>
+        <button onclick="pickDinner()">Pick Dinner</button>
     </div>
 
-    <script src="recipes.js"></script>
-    <script>
-        function getLunchRecommendation() {
-            const dietaryPreference = document.getElementById("dietary-preference").value;
-            const cookingSkill = document.getElementById("cooking-skill").value;
-            const timeAvailable = document.getElementById("time-available").value;
+    <div id="recipe-display">
+        <h2>Recommended Recipe:</h2>
+        <p id="recipe-name"></p>
+        <p id="recipe-details"></p>
+    </div>
 
-            const recommendation = getLunchRecommendation(dietaryPreference, cookingSkill, timeAvailable);
-
-            // Display the recommendation with ingredients and instructions
-            const recommendationElement = document.getElementById("lunch-recommendation");
-            if (recommendation !== "No matching lunch found.") {
-                recommendationElement.innerHTML = `<strong>${recommendation.name}</strong><br>`;
-                recommendationElement.innerHTML += "<strong>Ingredients:</strong><ul>";
-                recommendation.ingredients.forEach(ingredient => {
-                    recommendationElement.innerHTML += `<li>${ingredient}</li>`;
-                });
-                recommendationElement.innerHTML += "</ul>";
-                recommendationElement.innerHTML += "<strong>Instructions:</strong><ol>";
-                recommendation.instructions.forEach(instruction => {
-                    recommendationElement.innerHTML += `<li>${instruction}</li>`;
-                });
-                recommendationElement.innerHTML += "</ol>";
-            } else {
-                recommendationElement.textContent = recommendation;
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
-</html>
+</html> 
