@@ -1,0 +1,15 @@
+[
+    {
+        "name": "Spaghetti Carbonara",
+        "diet": "any",
+        "time": 30,
+        "description": "A classic Italian pasta dish with bacon, eggs, and cheese."
+    },
+    {
+        "name": "Vegan Stir-Fry",
+        "diet": "vegan",
+        "time": 15,
+        "description": "A quick and delicious stir-fry with tofu and vegetables."
+    }
+    // Add more recipes
+]
