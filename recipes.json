@@ -3,7 +3,7 @@
         {
             "name": "Vegan Stir-Fry",
             "diet": "vegan",
-            "time": 15,
+            "time": "15",
             "recipe": "Ingredients:\n- 200g tofu, cubed\n- 2 cups mixed vegetables (bell peppers, broccoli, carrots, etc.)\n- 2 cloves garlic, minced\n- 2 tablespoons soy sauce\n- 1 tablespoon sesame oil\n- 1 tablespoon maple syrup\n- 1 teaspoon cornstarch\n- Cooked rice or noodles\n\nInstructions:\n1. In a small bowl, mix soy sauce, sesame oil, maple syrup, and cornstarch.\n2. Heat a pan, add tofu, and cook until golden brown.\n3. Add garlic and vegetables, stir-fry for a few minutes.\n4. Pour the sauce over tofu and veggies, stir well.\n5. Serve over cooked rice or noodles."
         },
         // Add more recipes for different preferences and times here
