@@ -1,45 +1,10 @@
 {
     "recipes": [
         {
-            "name": "Spaghetti Carbonara",
-            "diet": "carnivore",
-            "time": 30,
-            "recipe": "
-                Ingredients:
-                - 200g spaghetti
-                - 100g pancetta or guanciale
-                - 2 large eggs
-                - 50g Pecorino Romano cheese
-                - Salt and pepper
-
-                Instructions:
-                1. Cook spaghetti in a large pot of salted boiling water until al dente.
-                2. While spaghetti cooks, crisp pancetta in a pan over medium heat.
-                3. In a bowl, whisk eggs, grated Pecorino Romano, and a pinch of black pepper.
-                4. Drain cooked spaghetti and quickly toss with the egg and cheese mixture.
-                5. Add crispy pancetta on top and serve immediately."
-        },
-        {
             "name": "Vegan Stir-Fry",
             "diet": "vegan",
             "time": 15,
-            "recipe": "
-                Ingredients:
-                - 200g tofu, cubed
-                - 2 cups mixed vegetables (bell peppers, broccoli, carrots, etc.)
-                - 2 cloves garlic, minced
-                - 2 tablespoons soy sauce
-                - 1 tablespoon sesame oil
-                - 1 tablespoon maple syrup
-                - 1 teaspoon cornstarch
-                - Cooked rice or noodles
-
-                Instructions:
-                1. In a small bowl, mix soy sauce, sesame oil, maple syrup, and cornstarch.
-                2. Heat a pan, add tofu, and cook until golden brown.
-                3. Add garlic and vegetables, stir-fry for a few minutes.
-                4. Pour the sauce over tofu and veggies, stir well.
-                5. Serve over cooked rice or noodles."
+            "recipe": "Ingredients:\n- 200g tofu, cubed\n- 2 cups mixed vegetables (bell peppers, broccoli, carrots, etc.)\n- 2 cloves garlic, minced\n- 2 tablespoons soy sauce\n- 1 tablespoon sesame oil\n- 1 tablespoon maple syrup\n- 1 teaspoon cornstarch\n- Cooked rice or noodles\n\nInstructions:\n1. In a small bowl, mix soy sauce, sesame oil, maple syrup, and cornstarch.\n2. Heat a pan, add tofu, and cook until golden brown.\n3. Add garlic and vegetables, stir-fry for a few minutes.\n4. Pour the sauce over tofu and veggies, stir well.\n5. Serve over cooked rice or noodles."
         }
         // Add more recipes for different preferences and times
     ]
