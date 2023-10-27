@@ -3,38 +3,27 @@ function pickDinner() {
     const dietaryPreference = document.getElementById("dietary").value;
     const timeAvailable = document.getElementById("time").value;
 
-    // Replace with your recipe data (JSON format)
-    const recipeData = [
-        {
-            name: "Spaghetti Carbonara",
-            diet: "any",
-            time: 30,
-            description: "A classic Italian pasta dish with bacon, eggs, and cheese."
-        },
-        {
-            name: "Vegan Stir-Fry",
-            diet: "vegan",
-            time: 15,
-            description: "A quick and delicious stir-fry with tofu and vegetables."
-        },
-        // Add more recipes
-    ];
+    // Fetch the recipe data from the JSON file
+    fetch("recipes.json")
+        .then(response => response.json())
+        .then(data => {
+            // Filter recipes based on user preferences
+            const suitableRecipes = data.recipes.filter(recipe => (
+                (recipe.diet === dietaryPreference) &&
+                (recipe.time <= parseInt(timeAvailable))
+            ));
 
-    // Filter recipes based on user preferences
-    const suitableRecipes = recipeData.filter(recipe => (
-        (dietaryPreference === "any" || recipe.diet === dietaryPreference) &&
-        (timeAvailable === "any" || recipe.time <= parseInt(timeAvailable))
-    ));
+            if (suitableRecipes.length === 0) {
+                document.getElementById("recipe-display").style.display = "none";
+                alert("No suitable recipes found. Please adjust your preferences.");
+            } else {
+                const randomIndex = Math.floor(Math.random() * suitableRecipes.length);
+                const selectedRecipe = suitableRecipes[randomIndex];
 
-    if (suitableRecipes.length === 0) {
-        document.getElementById("recipe-display").style.display = "none";
-        alert("No suitable recipes found. Please adjust your preferences.");
-    } else {
-        const randomIndex = Math.floor(Math.random() * suitableRecipes.length);
-        const selectedRecipe = suitableRecipes[randomIndex];
-
-        document.getElementById("recipe-name").textContent = selectedRecipe.name;
-        document.getElementById("recipe-details").textContent = `Diet: ${selectedRecipe.diet}, Time: ${selectedRecipe.time} minutes, Description: ${selectedRecipe.description}`;
-        document.getElementById("recipe-display").style.display = "block";
-    }
+                document.getElementById("recipe-name").textContent = selectedRecipe.name;
+                document.getElementById("recipe-details").textContent = `Recipe:\n${selectedRecipe.recipe}`;
+                document.getElementById("recipe-display").style.display = "block";
+            }
+        })
+        .catch(error => console.error("Error fetching recipe data: " + error));
 }
