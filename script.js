@@ -1,13 +1,10 @@
 function pickDinner() {
-    // Get user selections
     const dietaryPreference = document.getElementById("dietary").value;
     const timeAvailable = document.getElementById("time").value;
 
-    // Fetch the recipe data from the JSON file
     fetch("recipes.json")
         .then(response => response.json())
         .then(data => {
-            // Filter recipes based on user preferences
             const suitableRecipes = data.recipes.filter(recipe => (
                 (recipe.diet === dietaryPreference) &&
                 (recipe.time <= parseInt(timeAvailable))
