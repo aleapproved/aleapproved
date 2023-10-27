@@ -4,7 +4,7 @@
             "name": "Spaghetti Carbonara",
             "diet": "carnivore",
             "time": 30,
-            "recipe": `
+            "recipe": "
                 Ingredients:
                 - 200g spaghetti
                 - 100g pancetta or guanciale
@@ -17,13 +17,13 @@
                 2. While spaghetti cooks, crisp pancetta in a pan over medium heat.
                 3. In a bowl, whisk eggs, grated Pecorino Romano, and a pinch of black pepper.
                 4. Drain cooked spaghetti and quickly toss with the egg and cheese mixture.
-                5. Add crispy pancetta on top and serve immediately.`
+                5. Add crispy pancetta on top and serve immediately."
         },
         {
             "name": "Vegan Stir-Fry",
             "diet": "vegan",
             "time": 15,
-            "recipe": `
+            "recipe": "
                 Ingredients:
                 - 200g tofu, cubed
                 - 2 cups mixed vegetables (bell peppers, broccoli, carrots, etc.)
@@ -39,7 +39,7 @@
                 2. Heat a pan, add tofu, and cook until golden brown.
                 3. Add garlic and vegetables, stir-fry for a few minutes.
                 4. Pour the sauce over tofu and veggies, stir well.
-                5. Serve over cooked rice or noodles.`
+                5. Serve over cooked rice or noodles."
         }
         // Add more recipes for different preferences and times
     ]
