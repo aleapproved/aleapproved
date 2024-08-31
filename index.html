@@ -1,38 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dinner Picker</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venue Reviews</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Dinner Picker</h1>
-    <div class="form">
-        <label for="dietary">Dietary Preferences:</label>
-        <select id="dietary">
-            <option value="carnivore">Carnivore</option>
-            <option value="vegetarian">Vegetarian</option>
-            <option value="vegan">Vegan</option>
-            <option value="gluten-free">Gluten-free</option>
-            <!-- Add more options as needed -->
-        </select>
-
-        <label for="time">Time Available:</label>
-        <select id="time">
-            <option value="15">15 minutes</option>
-            <option value="30">30 minutes</option>
-            <option value="60">1 hour</option>
-            <!-- Add more options as needed -->
-        </select>
-
-        <button onclick="pickDinner()">Pick Dinner</button>
-    </div>
-
-    <div id="recipe-display">
-        <h2>Recommended Recipe:</h2>
-        <p id="recipe-name"></p>
-        <p id="recipe-details"></p>
-    </div>
-
+    <h1>Venue Reviews</h1>
+    <section id="visit">
+        <h2>Visit</h2>
+        <ul>
+            </ul>
+    </section>
+    <section id="neutral">
+        <h2>Neutral</h2>
+        <ul>
+            </ul>
+    </section>
+    <section id="avoid">
+        <h2>Avoid</h2>
+        <ul>
+            </ul>
+    </section>
     <script src="script.js"></script>
 </body>
 </html>
