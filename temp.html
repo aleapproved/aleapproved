@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lunch Decision Helper</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #141414;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        #content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+        select, button {
+            font-size: 18px;
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+        }
+        select {
+            outline: none;
+        }
+        button {
+            background-color: #141414;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #1d1d1d;
+        }
+        label {
+            font-size: 18px;
+            margin-top: 10px;
+            display: block;
+        }
+        h2 {
+            font-size: 24px;
+        }
+        p {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lunch Decision Helper</h1>
+    </header>
+    <div id="content">
+        <h2>Let's Decide What's for Lunch</h2>
+        <p>Answer the questions below to get personalized lunch recommendations.</p>
+        <form id="lunch-decision-form">
+            <label for="dietary-preference">Dietary Preference:</label>
+            <select id="dietary-preference">
+                <option value="any">Any</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="pescatarian">Pescatarian</option>
+                <option value="carnivore">Carnivore</option>
+            </select>
+
+            <label for="cooking-skill">Cooking Skill Level:</label>
+            <select id="cooking-skill">
+                <option value="any">Any</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+
+            <label for "time-available">Time Available:</label>
+            <select id="time-available">
+                <option value="any">Any</option>
+                <option value="quick">Quick (15 minutes or less)</option>
+                <option value="moderate">Moderate (30-45 minutes)</option>
+                <option value="leisurely">Leisurely (more than 45 minutes)</option>
+            </select>
+
+            <button type="button" onclick="getLunchRecommendation()">Get Lunch Recommendation</button>
+        </form>
+
+        <h2>Recommended Lunch:</h2>
+        <p id="lunch-recommendation">Your personalized lunch recommendation will appear here.</p>
+        <h2>Recipe:</h2>
+        <p id="recipe">Recipe details will appear here.</p>
+    </div>
+
+    <script>
+        function getLunchRecommendation() {
+            const dietaryPreference = document.getElementById("dietary-preference").value;
+            const cookingSkill = document.getElementById("cooking-skill").value;
+            const timeAvailable = document.getElementById("time-available").value;
+
+            const lunchOptions = [
+                {
+                    name: "Mediterranean Salad",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                    recipe: `
+                        <strong>Mediterranean Salad</strong><br>
+                        <strong>Ingredients:</strong> lettuce, tomatoes, cucumbers, olives, feta cheese, olive oil, lemon juice, oregano.<br>
+                        <strong>Instructions:</strong>
+                        <ol>
+                            <li>Toss lettuce, tomatoes, cucumbers, olives, and feta cheese in a bowl.</li>
+                            <li>Drizzle with olive oil and lemon juice.</li>
+                            <li>Sprinkle with oregano for added flavor.</li>
+                        </ol>
+                    `,
+                },
+                {
+                    name: "Chicken Alfredo Pasta",
+                    dietaryPreference: "carnivore",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                    recipe: `
+                        <strong>Chicken Alfredo Pasta</strong><br>
+                        <strong>Ingredients:</strong> fettuccine pasta, chicken breast, heavy cream, butter, garlic, Parmesan cheese.<br>
+                        <strong>Instructions:</strong>
+                        <ol>
+                            <li>Cook fettuccine pasta according to package instructions.</li>
+                            <li>Sauté chicken breast in a pan until fully cooked.</li>
+                            <li>In a separate pan, melt butter and add minced garlic, then pour in heavy cream and Parmesan cheese, stirring until smooth.</li>
+                            <li>Combine cooked pasta, chicken, and Alfredo sauce in a large serving bowl.</li>
+                        </ol>
+                    `,
+                },
+                {
+                    name: "Vegan Stir-Fry",
+                    dietaryPreference: "vegan",
+                    cookingSkill: "intermediate",
+                    time: "moderate",
+                    recipe: `
+                        <strong>Vegan Stir-Fry</strong><br>
+                        <strong>Ingredients:</strong> tofu, mixed vegetables, soy sauce, garlic, ginger, sesame oil, rice.<br>
+                        <strong>Instructions:</strong>
+                        <ol>
+                            <li>Cut tofu into cubes and stir-fry in a pan until browned.</li>
+                            <li>Add mixed vegetables and stir-fry with garlic, ginger, and soy sauce.</li>
+                            <li>Drizzle with sesame oil and serve over cooked rice.</li>
+                        </ol>
+                    `,
+                },
+                {
+                    name: "Grilled Salmon",
+                    dietaryPreference: "pescatarian",
+                    cookingSkill: "advanced",
+                    time: "leisurely",
+                    recipe: `
+                        <strong>Grilled Salmon</strong><br>
+                        <strong>Ingredients:</strong> salmon fillet, lemon, olive oil, dill, salt, pepper.<br>
+                        <strong>Instructions:</strong>
+                        <ol>
+                            <li>Brush salmon with olive oil, then sprinkle with dill, salt, and pepper.</li>
+                            <li>Grill salmon over medium-high heat until fully cooked.</li>
+                            <li>Squeeze lemon over the grilled salmon and serve.</li>
+                        </ol>
+                    `,
+                },
+                {
+                    name: "Caprese Sandwich",
+                    dietaryPreference: "vegetarian",
+                    cookingSkill: "beginner",
+                    time: "quick",
+                    recipe: `
+                        <strong>Caprese Sandwich</strong><br>
+                        <strong>Ingredients:</strong> baguette, tomatoes, mozzarella cheese, basil, balsamic glaze.<br>
+                        <strong>Instructions:</strong>
+                        <ol>
+                            <li>Slice baguette and layer with tomato, mozzarella, and basil leaves.</li>
+                            <li>Drizzle with balsamic glaze and serve as a sandwich.</li>
+                        </ol>
+                    `,
+                },
+                // Add recipes for other lunch options here
+            ];
+
+            const filteredOptions = lunchOptions.filter(option => {
+                return (
+                    (dietaryPreference === "any" || option.dietaryPreference === dietaryPreference) &&
+                    (cookingSkill === "any" || option.cookingSkill === cookingSkill) &&
+                    (timeAvailable === "any" || option.time === timeAvailable)
+                );
+            });
+
+            let recommendation = "No matching lunch found.";
+            if (filteredOptions.length > 0) {
+                const randomIndex = Math.floor(Math.random() * filteredOptions.length);
+                recommendation = filteredOptions[randomIndex].name;
+                document.getElementById("recipe").innerHTML = filteredOptions[randomIndex].recipe;
+            }
+
+            document.getElementById("lunch-recommendation").textContent = recommendation;
+        }
+    </script>
+</body>
+</html>
