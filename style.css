@@ -1,16 +1,19 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f8f9fa;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
+/* Header */
 header {
-    background-color: #343a40;
-    color: white;
-    padding: 10px 0;
+    background-color: #fff;
+    color: #333;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -24,56 +27,103 @@ nav {
     margin: auto;
 }
 
+nav h1 a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+    font-size: 24px;
+}
+
 nav ul {
     list-style: none;
     display: flex;
-}
-
-nav ul li {
-    margin: 0 15px;
+    gap: 20px;
 }
 
 nav ul li a {
-    color: white;
+    color: #333;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
+nav ul li a:hover,
 nav ul li a.active {
-    border-bottom: 2px solid #ffc107;
+    background-color: #ffd700;
+    color: #fff;
 }
 
+/* Hero Section */
 .hero {
     background-image: url('path/to/hero-image.jpg');
     background-size: cover;
     background-position: center;
-    height: 300px;
-    color: white;
+    height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.hero-content {
     text-align: center;
+    color: white;
+    padding: 0 20px;
 }
 
+.hero-content h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary {
+    background-color: #ffd700;
+    color: #333;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #e6c200;
+}
+
+/* Reviews Section */
 .reviews {
     width: 90%;
-    margin: 20px auto;
+    margin: 40px auto;
     padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reviews h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ffd700;
+    padding-bottom: 10px;
 }
 
 .review-card {
     display: flex;
+    align-items: center;
     background-color: #fff;
     margin: 15px 0;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .review-card img {
@@ -84,14 +134,57 @@ nav ul li a.active {
 
 .review-content h3 {
     margin: 0;
+    font-size: 22px;
+    margin-bottom: 5px;
 }
 
+.review-content .rating {
+    color: #ffd700;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.review-content p {
+    margin: 0 0 10px 0;
+    color: #666;
+}
+
+.btn-secondary {
+    background-color: #333;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #555;
+}
+
+/* Footer */
 footer {
-    background-color: #343a40;
+    background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    color: #ffd700;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
 }
