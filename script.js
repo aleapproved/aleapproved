@@ -1,26 +1,20 @@
-function pickDinner() {
-    const dietaryPreference = document.getElementById("dietary").value;
-    const timeAvailable = document.getElementById("time").value;
+// Sample review data (replace with your own data)
+const reviews = [
+    { category: "Visit", venue: "Restaurant A", review: "Excellent food and service!" },
+    { category: "Neutral", venue: "Hotel B", review: "Average stay, could be better." },
+    // ... more reviews
+];
 
-    fetch("recipes.json")
-        .then(response => response.json())
-        .then(data => {
-            const suitableRecipes = data.recipes.filter(recipe => (
-                (recipe.diet === dietaryPreference) &&
-                (recipe.time <= parseInt(timeAvailable))
-            ));
-
-            if (suitableRecipes.length === 0) {
-                document.getElementById("recipe-display").style.display = "none";
-                alert("No suitable recipes found. Please adjust your preferences.");
-            } else {
-                const randomIndex = Math.floor(Math.random() * suitableRecipes.length);
-                const selectedRecipe = suitableRecipes[randomIndex];
-
-                document.getElementById("recipe-name").textContent = selectedRecipe.name;
-                document.getElementById("recipe-details").textContent = `Recipe:\n${selectedRecipe.recipe}`;
-                document.getElementById("recipe-display").style.display = "block";
-            }
-        })
-        .catch(error => console.error("Error fetching recipe data: " + error));
+// Function to dynamically add reviews
+function addReviews() {
+    const sections = document.querySelectorAll('section');
+    reviews.forEach(review => {
+        const section = sections[review.category.toLowerCase()];
+        const listItem = document.createElement('li');
+        listItem.textContent = `${review.venue}: ${review.review}`;
+        section.querySelector('ul').appendChild(listItem);
+    });
 }
+
+// Call the function to add reviews
+addReviews();
